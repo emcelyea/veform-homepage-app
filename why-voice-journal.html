@@ -88,7 +88,7 @@
       <section class="cta-block">
         <h2>Try it yourself</h2>
         <p>Your first check-in takes two minutes. No blank page, no pressure — just a conversation.</p>
-        <a class="cta-button" href="index.html">Start your first check-in</a>
+        <a class="cta-button" href="download.html">Download the App</a>
       </section>
       <section id="sources" class="sources">
         <h2>Research notes</h2>
@@ -104,5 +104,24 @@
 
     <footer>&copy; veform</footer>
   </main>
+
+  <script src="app.js"></script>
+  <script>
+    honTime('why', uuid);
+
+    document.querySelectorAll('.nav a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var label = (link.textContent || 'link').trim().toLowerCase();
+        honTime('why_nav_' + label, uuid);
+      });
+    });
+
+    var cta = document.querySelector('.cta-button');
+    if (cta) {
+      cta.addEventListener('click', function () {
+        honTime('why_download_cta', uuid);
+      });
+    }
+  </script>
 </body>
 </html>
